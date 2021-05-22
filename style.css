@@ -66,4 +66,13 @@ body {
         word-break: break-all;
     }
 
-    
+    .output .previous-operand {
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 1rem;
+    }
+
+    .output .current-operand {
+        background-color: rgba(255, 255, 255, 0);
+        font-size: 3rem;
+
+    }
