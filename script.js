@@ -6,32 +6,39 @@ class Calculator {
     }
 
 
-clear() {
-    this.currentOperand = ''
-    this.previousOperand = ''
-    this.operation = undefined
-}
+    clear() {
+        this.currentOperand = ''
+        this.previousOperand = ''
+        this.operation = undefined
+    }
 
-delete() {
+    delete() {
 
-}
+    }
 
-appendNumber(number) {
-    if (number === '.' && this.currentOperand.includes('.')) return
-    this.currentOperand = this.currentOperand.toString() + number.toString()
-}
+    appendNumber(number) {
+        if (number === '.' && this.currentOperand.includes('.')) return
+        this.currentOperand = this.currentOperand.toString() + number.toString()
+    }
 
-chooseOperation(operation) {
+    chooseOperation(operation) {
+        if (this.currentOperand === '') return
+        if (this.previousOperand !== '') {
+            this.compute()
+        }
+        this.operation = operation
+        this.previousOperand = this.currentOperand
+        this.currentOperand = ''
+    }
 
-}
+    compute() {
 
-compute() {
+    }
 
-}
-
-updateDisplay() {
-    this.currentOperandTextElement.innerText = this.currentOperand
-}
+    updateDisplay() {
+        this.currentOperandTextElement.innerText = this.currentOperand
+        this.previousOperandandTextElement.innerText = this.previousOperand
+    }
 }
 
 const numberButtons = document.querySelectorAll('[data-number]')
@@ -56,4 +63,9 @@ operationButtons.forEach(button => {
         calculator.chooseOperation(button.innerText)
         calculator.updateDisplay()
     })
+})
+
+equalsButton.addEventListener('click', button => {
+    calculator.compute()
+    calculator.updateDisplay()
 })
