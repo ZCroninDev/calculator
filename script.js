@@ -36,8 +36,9 @@ class Calculator {
     }
 
     updateDisplay() {
+        console.log(this.currentOperandTextElement, this.previousOperandandTextElement)
         this.currentOperandTextElement.innerText = this.currentOperand
-        this.previousOperandandTextElement.innerText = this.previousOperand
+        this.previousOperandTextElement.innerText = this.previousOperand
     }
 }
 
